@@ -1,1 +1,33 @@
-zdzd
+-- Création de la table 'role'
+CREATE TABLE role (
+    id_role INT IDENTITY(1,1) PRIMARY KEY,
+    libelle NVARCHAR(50) NOT NULL
+);
+
+-- Création de la table 'priorite'
+CREATE TABLE priorite (
+    id_priorite INT IDENTITY(1,1) PRIMARY KEY,
+    libelle NVARCHAR(50) NOT NULL
+);
+
+-- Création de la table 'utilisateur'
+CREATE TABLE utilisateur (
+    id_utilisateur INT IDENTITY(1,1) PRIMARY KEY,
+    nom NVARCHAR(100) NOT NULL,
+    prenom NVARCHAR(100) NOT NULL,
+    mdp NVARCHAR(255) NOT NULL,
+    id_role INT NOT NULL,
+    CONSTRAINT FK_utilisateur_role FOREIGN KEY (id_role) REFERENCES role(id_role)
+);
+
+-- Création de la table 'Ticket'
+CREATE TABLE Ticket (
+    id_ticket INT IDENTITY(1,1) PRIMARY KEY,
+    statut NVARCHAR(50) NOT NULL,
+    description NVARCHAR(MAX),
+    reponse_ticket NVARCHAR(MAX),
+    id_utilisateur INT NOT NULL,
+    id_priorite INT NOT NULL,
+    CONSTRAINT FK_Ticket_utilisateur FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur),
+    CONSTRAINT FK_Ticket_priorite FOREIGN KEY (id_priorite) REFERENCES priorite(id_priorite)
+);
