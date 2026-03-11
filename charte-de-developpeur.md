@@ -41,7 +41,7 @@ Tout contributeur au projet s'engage à respecter les règles décrites dans cet
 | Fichiers | kebab-case | `ticket-list.component.ts` |
 | Interfaces TypeScript | PascalCase préfixé `I` | `ITicket`, `IUser` |
 | Enums | PascalCase | `TicketStatus` |
-| Tables SQLite | snake_case (pluriel) | `tickets`, `users` |
+| Tables SQLite | snake_case | `ticket`, `user` |
 | Colonnes SQLite | snake_case | `created_at`, `assigned_to` |
 
 ### 3.2 Angular
